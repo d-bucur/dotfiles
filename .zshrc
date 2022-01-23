@@ -105,3 +105,8 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+#
+
+function rust() {
+    rustc $1 -o a.out && ./a.out && rm a.out
+}
