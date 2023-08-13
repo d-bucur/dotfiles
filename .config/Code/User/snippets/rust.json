@@ -1,0 +1,76 @@
+{
+    "Derive": {
+        "prefix": "derive",
+        "body": "#[derive(${0})]",
+    },
+    "Bevy Query Param": {
+        "prefix": "query bevy",
+        "body": "${1:query}: Query<${0}>",
+    },
+    "Bevy Mutable Query Param": {
+        "prefix": "query mut bevy",
+        "body": "mut ${1:query}: Query<${0}>",
+    },
+    "Bevy Commands Param": {
+        "prefix": "commands bevy",
+        "body": "mut ${0:commands}: Commands",
+    },
+    "Bevy Res Param": {
+        "prefix": "res bevy",
+        "body": "${1:res}: Res<${0}>",
+    },
+    "Bevy ResMut Param": {
+        "prefix": "res mut bevy",
+        "body": "mut ${1:res}: ResMut<${0}>",
+    },
+    "Bevy EventWriter Param": {
+        "prefix": "event writer bevy",
+        "body": "mut ${1:events}: EventWriter<${0}>",
+    },
+    "Bevy EventReader Param": {
+        "prefix": "event reader bevy",
+        "body": "mut ${1:events}: EventReader<${0}>",
+    },
+    "Bevy Local Param": {
+        "prefix": "local bevy",
+        "body": "mut ${1:local}: Local<${0}>",
+    },
+    "Bevy App Template": {
+        "prefix": "app bevy",
+        "body": [
+            "use bevy::prelude::*;",
+            "",
+            "fn main() {",
+            "   App::new()",
+            "       .add_plugins(DefaultPlugins)${0}",
+            "       .run();",
+            "}",
+        ]
+    },
+    "Bevy Plugin Template": {
+        "prefix": "plugin bevy",
+        "body": [
+            "pub struct ${1};",
+            "",
+            "impl Plugin for ${1} {",
+            "\tfn build(&self, app: &mut App) {",
+            "\t\t${0}",
+            "\t}",
+            "}",
+        ]
+    },
+    "Bevy Component Struct": {
+        "prefix": "component bevy",
+        "body": [
+            "#[derive(Component)]",
+            "struct ${0}",
+        ],
+    },
+    "Bevy Resource Struct": {
+        "prefix": "resource bevy",
+        "body": [
+            "#[derive(Resource)]",
+            "struct ${0}",
+        ],
+    }
+}
