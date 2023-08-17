@@ -63,14 +63,30 @@
         "prefix": "component bevy",
         "body": [
             "#[derive(Component)]",
-            "struct ${0}",
+            "struct ${0};",
         ],
     },
     "Bevy Resource Struct": {
         "prefix": "resource bevy",
         "body": [
             "#[derive(Resource)]",
-            "struct ${0}",
+            "struct ${0};",
         ],
-    }
+    },
+    "Bevy SystemSet": {
+        "prefix": "system set bevy",
+        "body": [
+            "#[derive(SystemSet, Debug, Hash, Clone, PartialEq, Eq)]",
+            "pub enum ${1} {",
+            "    ${2}",
+            "}",
+        ],
+    },
+    "Bevy Schedule Label": {
+        "prefix": "schedule label bevy",
+        "body": [
+            "#[derive(ScheduleLabel, Debug, Hash, PartialEq, Eq, Clone)]",
+            "struct ${0};",
+        ],
+    },
 }
