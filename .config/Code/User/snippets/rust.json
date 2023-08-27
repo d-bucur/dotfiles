@@ -1,8 +1,5 @@
 {
-    "Derive": {
-        "prefix": "derive",
-        "body": "#[derive(${0})]",
-    },
+    // BEVY
     "Bevy Query Param": {
         "prefix": "query bevy",
         "body": "${1:query}: Query<${0}>",
@@ -54,7 +51,7 @@
             "",
             "impl Plugin for ${1} {",
             "\tfn build(&self, app: &mut App) {",
-            "\t\t${0}",
+            "\t\t${2}",
             "\t}",
             "}",
         ]
@@ -62,15 +59,8 @@
     "Bevy Component Struct": {
         "prefix": "component bevy",
         "body": [
-            "#[derive(Component)]",
-            "struct ${0};",
-        ],
-    },
-    "Bevy Resource Struct": {
-        "prefix": "resource bevy",
-        "body": [
-            "#[derive(Resource)]",
-            "struct ${0};",
+            "#[derive(${1:Component})]",
+            "struct ${2}",
         ],
     },
     "Bevy SystemSet": {
@@ -86,7 +76,42 @@
         "prefix": "schedule label bevy",
         "body": [
             "#[derive(ScheduleLabel, Debug, Hash, PartialEq, Eq, Clone)]",
-            "struct ${0};",
+            "struct ${0}",
+        ],
+    },
+
+    // RUST
+    "Derive": {
+        "prefix": "derive",
+        "body": "#[derive(${0})]",
+    },
+    "Feature": {
+        "prefix": "feature",
+        "body": "#[cfg(feature = \"${1}\")]"
+    },
+    "Test": {
+        "prefix": "test",
+        "body": [
+            "#[cfg(test)]",
+            "mod tests {",
+            "    #[test]",
+            "    fn ${1}() {",
+            "        ${2}",
+            "    }",
+            "}",
+        ],
+    },
+    "Derivative Struct": {
+        "prefix": "derivative struct",
+        "body": [
+            "#[derive(Derivative)]",
+            "#[derivative(Default)]",
+        ],
+    },
+    "Derivative Default": {
+        "prefix": "derivative default value",
+        "body": [
+            "#[derivative(Default(value=\"${1}\"))]",
         ],
     },
 }
