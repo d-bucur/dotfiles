@@ -1,0 +1,12 @@
+[build]
+target-dir = "/home/do/.cargo-target"
+
+[target.nightly-x86_64-unknown-linux-gnu]
+# rustflags = ["-Clink-arg=-fuse-ld=lld", "-Zshare-generics=y", --no-rosegment"]
+rustflags = ["-Clink-arg=-fuse-ld=mold", "-Zshare-generics=y", "-Clink-arg=-Wl,--no-rosegment"]
+
+[target.stable-x86_64-unknown-linux-gnu]
+rustflags = ["-Clink-arg=-fuse-ld=mold", "-Clink-arg=-Wl,--no-rosegment"]
+
+[profile.release]
+incremental = true
